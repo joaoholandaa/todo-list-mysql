@@ -4,9 +4,14 @@ import mysql.connector
 meubd = mysql.connector.connect(
   host = "localhost",
   user = "root",
-  password = "admin"
+  password = "admin",
+  database = "tarefas"
 )
 
-# Criando banco de dados
 cursor = meubd.cursor()
-cursor.execute("CREATE DATABASE tarefas")
+
+# Criar banco de dados
+#cursor.execute("CREATE DATABASE tarefas")
+
+# Criar tabela 
+cursor.execute("CREATE TABLE IF NOT EXISTS tarefas(id INT AUTO_INCREMENT PRIMARY KEY, descricao VARCHAR (255), concluido BOOLEAN)")
