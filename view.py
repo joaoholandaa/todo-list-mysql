@@ -31,3 +31,10 @@ def marcar_completo(id_tarefa):
   valores = (id_tarefa,)
   cursor.execute(sql, valores)
   meubd.commit()
+
+# Função para excluir uma tarefa do banco de dados
+def deletar_tarefas(id_tarefa):
+  sql = "DELETE FROM tarefas WHERE id = %s"
+  valores = (id_tarefa,)
+  cursor.execute(sql, valores)
+  meubd.commit()
