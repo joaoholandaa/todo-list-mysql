@@ -24,3 +24,10 @@ def obter_tarefas():
   sql = "SELECT * FROM tarefas"
   cursor.execute(sql)
   return cursor.fetchall()
+
+# Função para marcar uma tarefa como concluída
+def marcar_completo(id_tarefa):
+  sql = "UPDATE tarefas SET concluido = True WHERE id = %s"
+  valores = (id_tarefa,)
+  cursor.execute(sql, valores)
+  meubd.commit()
